@@ -13,7 +13,7 @@ jobs:
 
       - name: "[Deploy] Delete existing directory listings"
         run: rm -rf **/index.html
-        working-directory: data
+        working-directory: '.'
 
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v4.0.0
@@ -23,7 +23,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'data'      # upload generated folder
+          path: '.'      # upload generated folder
   
   deploy:
     needs: pages-directory-listing
