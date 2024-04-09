@@ -11,10 +11,14 @@ jobs:
         with:
           ref: main    #checkout different branch
 
+      - name: "[Deploy] Delete existing directory listings"
+        run: rm -rf **/index.html
+        working-directory: data
+
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v4.0.0
         with:
-          FOLDER: data      #directory to generate index
+          FOLDER: /      #directory to generate index
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
